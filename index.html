@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Kasir Laundry Bella</title>
+    <title>Dashboard Laundry Bella</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -19,17 +19,17 @@
         .status-select { appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 0.5rem center; background-size: 1em; padding-right: 2rem; }
     </style>
 </head>
-<body class="text-gray-800 antialiased">
+<body class="text-gray-800 antialiased pb-20">
 
     <!-- Navbar -->
-    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center gap-3">
                     <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold shadow-sm">
-                        LB
+                        B
                     </div>
-                    <span class="font-bold text-xl tracking-tight text-gray-900">Laundry<span class="text-indigo-600"> Bella</span></span>
+                    <span class="font-bold text-xl tracking-tight text-gray-900">Dashboard Laundry <span class="text-indigo-600">Bella</span></span>
                 </div>
                 <div class="flex items-center gap-4">
                     <span id="current-date" class="text-sm font-medium text-gray-500 hidden sm:block"></span>
@@ -38,11 +38,11 @@
         </div>
     </nav>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         
         <!-- Widget Ringkasan -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between">
+            <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
                 <div>
                     <p class="text-sm font-medium text-gray-500">Total Transaksi</p>
                     <p id="stat-transactions" class="text-2xl font-bold text-gray-900 mt-1">0</p>
@@ -52,7 +52,7 @@
                 </div>
             </div>
             
-            <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between">
+            <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
                 <div>
                     <p class="text-sm font-medium text-gray-500">Total Berat Hari Ini</p>
                     <p id="stat-weight" class="text-2xl font-bold text-gray-900 mt-1">0 <span class="text-sm font-medium text-gray-500">Kg</span></p>
@@ -62,7 +62,7 @@
                 </div>
             </div>
 
-            <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between">
+            <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
                 <div>
                     <p class="text-sm font-medium text-gray-500">Estimasi Omset</p>
                     <p id="stat-revenue" class="text-2xl font-bold text-green-600 mt-1">Rp 0</p>
@@ -73,9 +73,10 @@
             </div>
         </div>
 
+        <!-- BAGIAN 1: ORDER MANAGEMENT -->
         <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
             
-            <!-- Kolom Form (Kiri) -->
+            <!-- Kolom Form Pesanan (Kiri) -->
             <div class="xl:col-span-1">
                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm h-fit">
                     <h2 class="text-lg font-semibold text-gray-900 mb-5">Pesanan Baru</h2>
@@ -129,14 +130,15 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 px-4 rounded-md transition duration-200 mt-2 shadow-sm text-sm">
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 px-4 rounded-md transition duration-200 mt-2 shadow-sm text-sm flex justify-center items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>
                             Simpan Pesanan
                         </button>
                     </form>
                 </div>
             </div>
 
-            <!-- Kolom Tabel & Aksi (Kanan) -->
+            <!-- Kolom Tabel Pekerjaan & Aksi (Kanan) -->
             <div class="xl:col-span-2 space-y-4 flex flex-col">
                 <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden flex-1 flex flex-col">
                     <div class="p-5 border-b border-gray-200 bg-white">
@@ -156,7 +158,7 @@
                                 </tr>
                             </thead>
                             <tbody id="orders-table-body" class="divide-y divide-gray-100 bg-white">
-                                <!-- Data akan dimuat via JS -->
+                                <!-- Data pesanan dimuat via JS -->
                             </tbody>
                         </table>
                     </div>
@@ -171,25 +173,83 @@
                     
                     <button onclick="clearData()" class="bg-white hover:bg-red-50 text-red-600 hover:text-red-700 border border-red-200 text-sm font-semibold py-3 px-4 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
-                        Hapus Semua Data
+                        Hapus Pekerjaan Hari Ini
                     </button>
                 </div>
             </div>
-
         </div>
+
+        <div class="border-t border-gray-200 my-6"></div>
+
+        <!-- BAGIAN 2: CUSTOMER MANAGEMENT -->
+        <div>
+            <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="text-indigo-600"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                Buku Data Pelanggan
+            </h2>
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+                
+                <!-- Form Tambah Pelanggan (Kiri) -->
+                <div class="xl:col-span-1">
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm h-fit">
+                        <h3 class="text-md font-semibold text-gray-900 mb-4">Tambah Data Pelanggan</h3>
+                        <form id="customer-db-form" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-1">Nama Pelanggan</label>
+                                <input type="text" id="db-name" required class="w-full border border-gray-300 rounded-md p-2 text-sm focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-colors" placeholder="Cth: Budi Santoso">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-1">Nomor HP</label>
+                                <div class="flex">
+                                    <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">WA</span>
+                                    <input type="tel" id="db-phone" required class="flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-r-md border border-gray-300 text-sm focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 outline-none" placeholder="08123...">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-200 mt-2 shadow-sm text-sm">
+                                Simpan ke Data Pelanggan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Tabel Data Pelanggan (Kanan) -->
+                <div class="xl:col-span-2">
+                    <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden flex flex-col h-full max-h-96">
+                        <div class="p-4 border-b border-gray-200 bg-gray-50">
+                            <p class="text-sm text-gray-500">Tabel Nama Pelanggan dan Nomor WA.</p>
+                        </div>
+                        <div class="overflow-y-auto flex-1">
+                            <table class="w-full text-left text-sm whitespace-nowrap">
+                                <thead class="bg-white text-gray-500 sticky top-0 border-b border-gray-200 shadow-sm">
+                                    <tr>
+                                        <th class="px-5 py-3 font-medium">NAMA PELANGGAN</th>
+                                        <th class="px-5 py-3 font-medium">NOMOR WA</th>
+                                        <th class="px-5 py-3 font-medium text-right">AKSI</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="customers-db-table" class="divide-y divide-gray-100 bg-white">
+                                    <!-- Data pelanggan dimuat via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
-        // State Management
+        // --- 1. STATE MANAGEMENT (PESANAN & PELANGGAN) ---
         let orders = JSON.parse(localStorage.getItem('laundryOrders')) || [];
+        let customers = JSON.parse(localStorage.getItem('laundryCustomers')) || [];
 
-        // Konfigurasi Format
         const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById('current-date').innerText = new Date().toLocaleDateString('id-ID', dateOptions);
 
-        const formatRupiah = (number) => {
-            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(number);
-        };
+        const formatRupiah = (number) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(number);
 
         const formatPhoneForWA = (phone) => {
             let cleaned = phone.replace(/\D/g, '');
@@ -197,7 +257,6 @@
             return cleaned;
         };
 
-        // UI Styling Helper untuk Dropdown Status
         const getStatusStyles = (status) => {
             switch(status) {
                 case 'PROSES': return 'bg-yellow-50 text-yellow-700 border-yellow-200';
@@ -209,18 +268,26 @@
         };
         const statusList = ['PROSES', 'DIKERJAKAN', 'SELESAI', 'DIAMBIL/DIANTAR'];
 
-        // DOM Elements
-        const form = document.getElementById('laundry-form');
+        // --- DOM Elements (Order) ---
+        const formOrder = document.getElementById('laundry-form');
+        const orderNameInput = document.getElementById('customer-name');
+        const orderPhoneInput = document.getElementById('customer-phone');
         const priceInput = document.getElementById('service-price');
         const weightInput = document.getElementById('service-weight');
         const displayTotal = document.getElementById('display-total');
-        const tableBody = document.getElementById('orders-table-body');
+        const tableBodyOrders = document.getElementById('orders-table-body');
         
         const statTransactions = document.getElementById('stat-transactions');
         const statWeight = document.getElementById('stat-weight');
         const statRevenue = document.getElementById('stat-revenue');
 
-        // Kalkulasi Live Form
+        // --- DOM Elements (Customer DB) ---
+        const formCustomerDB = document.getElementById('customer-db-form');
+        const dbNameInput = document.getElementById('db-name');
+        const dbPhoneInput = document.getElementById('db-phone');
+        const tableBodyCustomers = document.getElementById('customers-db-table');
+
+        // --- 2. LOGIKA TRANSAKSI (PESANAN) ---
         const calculateTotal = () => {
             const total = (parseFloat(priceInput.value) || 0) * (parseFloat(weightInput.value) || 0);
             displayTotal.innerText = formatRupiah(total);
@@ -228,23 +295,19 @@
         priceInput.addEventListener('input', calculateTotal);
         weightInput.addEventListener('input', calculateTotal);
 
-        // Update Status Handler
         window.updateStatus = (index, selectElement) => {
             const newStatus = selectElement.value;
             orders[index].status = newStatus;
             localStorage.setItem('laundryOrders', JSON.stringify(orders));
-            
             selectElement.className = `status-select text-xs font-semibold border rounded-full py-1 pl-3 m-0 focus:outline-none transition-colors ${getStatusStyles(newStatus)}`;
         };
 
-        // Render Utama Tabel & Widget
-        const renderData = () => {
-            tableBody.innerHTML = '';
-            let totalRevenue = 0;
-            let totalWeight = 0;
+        const renderOrders = () => {
+            tableBodyOrders.innerHTML = '';
+            let totalRevenue = 0, totalWeight = 0;
 
             if (orders.length === 0) {
-                tableBody.innerHTML = `<tr><td colspan="6" class="text-center py-10 text-gray-400 text-sm">Belum ada pesanan hari ini.</td></tr>`;
+                tableBodyOrders.innerHTML = `<tr><td colspan="6" class="text-center py-10 text-gray-400 text-sm">Belum ada pesanan hari ini.</td></tr>`;
             } else {
                 orders.forEach((order, index) => {
                     totalRevenue += order.total;
@@ -253,59 +316,35 @@
                     const orderId = order.id || `INV - LB - ${Math.floor(100000 + Math.random() * 900000)}`;
                     const currentStatus = order.status || 'PROSES';
                     const displayDateTime = `${order.date || new Date().toLocaleDateString('id-ID')} • ${order.time || '-'}`;
-
-                    const statusOptions = statusList.map(s => 
-                        `<option value="${s}" ${currentStatus === s ? 'selected' : ''}>${s}</option>`
-                    ).join('');
+                    const statusOptions = statusList.map(s => `<option value="${s}" ${currentStatus === s ? 'selected' : ''}>${s}</option>`).join('');
 
                     const row = document.createElement('tr');
                     row.className = "hover:bg-gray-50/50 transition-colors group";
                     row.innerHTML = `
-                        <td class="px-5 py-4">
-                            <p class="font-semibold text-gray-900">${orderId}</p>
-                            <p class="text-xs text-gray-500">${displayDateTime}</p>
-                        </td>
-                        <td class="px-5 py-4">
-                            <p class="font-medium text-gray-900">${order.name}</p>
-                            <p class="text-xs text-indigo-600">${order.phone}</p>
-                        </td>
-                        <td class="px-5 py-4">
-                            <p class="text-gray-900">${order.service}</p>
-                            <p class="text-xs text-gray-500">${order.weight} Kg &times; ${formatRupiah(order.price)}</p>
-                        </td>
+                        <td class="px-5 py-4"><p class="font-semibold text-gray-900">${orderId}</p><p class="text-xs text-gray-500">${displayDateTime}</p></td>
+                        <td class="px-5 py-4"><p class="font-medium text-gray-900">${order.name}</p><p class="text-xs text-indigo-600">${order.phone}</p></td>
+                        <td class="px-5 py-4"><p class="text-gray-900">${order.service}</p><p class="text-xs text-gray-500">${order.weight} Kg &times; ${formatRupiah(order.price)}</p></td>
                         <td class="px-5 py-4 font-semibold text-gray-900">${formatRupiah(order.total)}</td>
-                        <td class="px-5 py-4">
-                            <select onchange="updateStatus(${index}, this)" class="status-select text-xs font-semibold border rounded-full py-1 pl-3 m-0 focus:outline-none transition-colors ${getStatusStyles(currentStatus)}">
-                                ${statusOptions}
-                            </select>
-                        </td>
-                        <td class="px-5 py-4 text-right">
-                            <button onclick="sendReceiptWA(${index})" class="text-indigo-600 hover:text-indigo-900 bg-indigo-50 hover:bg-indigo-100 py-1.5 px-3 rounded-md text-xs font-semibold transition-colors opacity-0 group-hover:opacity-100 sm:opacity-100">
-                                Nota WA
-                            </button>
-                        </td>
+                        <td class="px-5 py-4"><select onchange="updateStatus(${index}, this)" class="status-select text-xs font-semibold border rounded-full py-1 pl-3 m-0 focus:outline-none transition-colors ${getStatusStyles(currentStatus)}">${statusOptions}</select></td>
+                        <td class="px-5 py-4 text-right"><button onclick="sendReceiptWA(${index})" class="text-indigo-600 hover:text-indigo-900 bg-indigo-50 hover:bg-indigo-100 py-1.5 px-3 rounded-md text-xs font-semibold transition-colors opacity-0 group-hover:opacity-100 sm:opacity-100">Nota WA</button></td>
                     `;
-                    tableBody.appendChild(row);
+                    tableBodyOrders.appendChild(row);
                 });
             }
-
-            // Update Widgets
             statTransactions.innerText = orders.length;
             statWeight.innerHTML = `${totalWeight.toFixed(1)} <span class="text-sm font-medium text-gray-500">Kg</span>`;
             statRevenue.innerText = formatRupiah(totalRevenue);
         };
 
-        // Handle Form Submit
-        form.addEventListener('submit', (e) => {
+        formOrder.addEventListener('submit', (e) => {
             e.preventDefault();
             const dateObj = new Date();
-            
             const newOrder = {
                 id: `INV - LB - ${Math.floor(100000 + Math.random() * 900000)}`,
                 date: dateObj.toLocaleDateString('id-ID'),
                 time: dateObj.toLocaleTimeString('id-ID', {hour: '2-digit', minute:'2-digit'}),
-                name: document.getElementById('customer-name').value,
-                phone: formatPhoneForWA(document.getElementById('customer-phone').value),
+                name: orderNameInput.value,
+                phone: formatPhoneForWA(orderPhoneInput.value),
                 service: document.getElementById('service-type').value,
                 price: parseFloat(priceInput.value),
                 weight: parseFloat(weightInput.value),
@@ -313,85 +352,107 @@
                 note: document.getElementById('order-note').value || '-',
                 status: 'PROSES'
             };
-
             orders.unshift(newOrder);
             localStorage.setItem('laundryOrders', JSON.stringify(orders)); 
-            
-            renderData();
-            form.reset();
+            renderOrders();
+            formOrder.reset();
             calculateTotal();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Fitur Nota WA
+        // --- 3. LOGIKA DATA PELANGGAN (CUSTOMER DB) ---
+        const renderCustomers = () => {
+            tableBodyCustomers.innerHTML = '';
+            if (customers.length === 0) {
+                tableBodyCustomers.innerHTML = `<tr><td colspan="3" class="text-center py-8 text-gray-400 text-sm">Belum ada data pelanggan tersimpan.</td></tr>`;
+            } else {
+                customers.forEach((cust, index) => {
+                    const row = document.createElement('tr');
+                    row.className = "hover:bg-gray-50/50 transition-colors";
+                    row.innerHTML = `
+                        <td class="px-5 py-3"><span class="font-medium text-gray-900">${cust.name}</span></td>
+                        <td class="px-5 py-3"><span class="text-gray-600">${cust.phone}</span></td>
+                        <td class="px-5 py-3 text-right">
+                            <button onclick="selectCustomer('${cust.name}', '${cust.phone}')" class="text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 py-1 px-3 rounded text-xs font-semibold mr-2 transition-colors">
+                                Pilih
+                            </button>
+                            <button onclick="deleteCustomer(${index})" class="text-red-500 hover:text-red-700 py-1 px-2 text-xs font-semibold">
+                                Hapus
+                            </button>
+                        </td>
+                    `;
+                    tableBodyCustomers.appendChild(row);
+                });
+            }
+        };
+
+        formCustomerDB.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const newCustomer = {
+                name: dbNameInput.value,
+                phone: formatPhoneForWA(dbPhoneInput.value)
+            };
+            // Cek apakah sudah ada untuk menghindari duplikat
+            const exists = customers.find(c => c.phone === newCustomer.phone);
+            if(!exists) {
+                customers.unshift(newCustomer);
+                localStorage.setItem('laundryCustomers', JSON.stringify(customers));
+                renderCustomers();
+            } else {
+                alert('Nomor HP pelanggan ini sudah terdaftar di database.');
+            }
+            formCustomerDB.reset();
+        });
+
+        window.deleteCustomer = (index) => {
+            if(confirm('Hapus kontak pelanggan ini?')) {
+                customers.splice(index, 1);
+                localStorage.setItem('laundryCustomers', JSON.stringify(customers));
+                renderCustomers();
+            }
+        };
+
+        window.selectCustomer = (name, phone) => {
+            orderNameInput.value = name;
+            // Menghapus '62' di depan agar pas di input (karena input aslinya untuk 08... dan diformat otomatis saat simpan)
+            orderPhoneInput.value = phone.startsWith('62') ? '0' + phone.slice(2) : phone;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            orderNameInput.focus();
+        };
+
+        // --- 4. FITUR WHATSAPP & RESET ---
         window.sendReceiptWA = (index) => {
             const order = orders[index];
-            const message = `*E-NOTA LAUNDRY BELLA* 👔✨
------------------------------------
-*No. Transaksi:* ${order.id}
-*Tanggal:* ${order.date || new Date().toLocaleDateString('id-ID')}
-
-*Nama Pelanggan:* ${order.name}
-*Layanan:* ${order.service}
-*Berat:* ${order.weight} Kg
-*Harga/Kg:* ${formatRupiah(order.price)}
-*Catatan:* ${order.note}
-
-*TOTAL BAYAR:* ${formatRupiah(order.total)}
------------------------------------
-
-Pakaian Anda sudah selesai dan siap untuk diantar. Terima kasih telah mempercayakan laundry Anda kepada kami! 🙏`;
-            
+            const message = `*E-NOTA LAUNDRY* 👔✨\n-----------------------------------\n*No. Transaksi:* ${order.id}\n*Tanggal:* ${order.date || new Date().toLocaleDateString('id-ID')}\n\n*Nama Pelanggan:* ${order.name}\n*Layanan:* ${order.service}\n*Berat:* ${order.weight} Kg\n*Harga/Kg:* ${formatRupiah(order.price)}\n*Catatan:* ${order.note}\n\n*TOTAL BAYAR:* ${formatRupiah(order.total)}\n-----------------------------------\n\nPakaian Anda sudah selesai dan siap untuk diantar/diambil. Terima kasih telah mempercayakan laundry Anda kepada kami! 🙏\n\n*KETERANGAN:*\n- Jika ada kerusakan pada pakaian karna sifat kain, kami tidak bertanggung jawab.\n- Klaim KEHILANGAN/KERUSAKAN maksimal 1x24 jam, terhitung mulai laundry diterima.\n- Laundry yang tidak diambil dalam jangka waktu 1 BULAN, kami tidak bertanggung jawab.`;
             window.open(`https://wa.me/${order.phone}?text=${encodeURIComponent(message)}`, '_blank');
         };
 
-        // Fitur Laporan Harian WA
         window.sendDailyReport = () => {
             if (orders.length === 0) return alert('Belum ada data hari ini.');
-
             let totalWeight = 0, grandTotal = 0;
             const count = { 'PROSES': 0, 'DIKERJAKAN': 0, 'SELESAI': 0, 'DIAMBIL/DIANTAR': 0 };
             let details = '';
-
             [...orders].reverse().forEach((order, i) => {
                 grandTotal += order.total;
                 totalWeight += order.weight;
                 count[order.status || 'PROSES']++;
                 details += `${i + 1}. *${order.name}* | *${order.weight} Kg* | *${formatRupiah(order.total)}* | *${order.status || 'PROSES'}*\n`;
             });
-
-            const message = `*📊 LAPORAN HARIAN LAUNDRY BELLA*
-Tanggal: ${new Date().toLocaleDateString('id-ID', dateOptions)}
-
-*📈 RINGKASAN HARI INI:*
-▪️ Total Transaksi: ${orders.length}
-▪️ Total Berat: ${totalWeight.toFixed(1)} Kg
-▪️ Total Estimasi Omset: ${formatRupiah(grandTotal)}
-
-*👥 DETAIL PELANGGAN HARI INI:*
-${details}
-*📋 RINCIAN STATUS PESANAN:*
-🟡 Diproses: ${count['PROSES']}
-🔵 Dikerjakan : ${count['DIKERJAKAN']}
-🟢 Selesai : ${count['SELESAI']}
-🔴 Diambil: ${count['DIAMBIL/DIANTAR']}
-
-_Laporan dihasilkan otomatis by Sistem_`;
-
+            const message = `*📊 LAPORAN HARIAN LAUNDRY*\nTanggal: ${new Date().toLocaleDateString('id-ID', dateOptions)}\n\n*📈 RINGKASAN HARI INI:*\n▪️ Total Transaksi: ${orders.length}\n▪️ Total Berat: ${totalWeight.toFixed(1)} Kg\n▪️ Total Estimasi Omset: ${formatRupiah(grandTotal)}\n\n*👥 DETAIL PELANGGAN HARI INI:*\n${details}\n*📋 RINCIAN STATUS PESANAN:*\n🟡 Diproses: ${count['PROSES']}\n🔵 Dikerjakan : ${count['DIKERJAKAN']}\n🟢 Selesai : ${count['SELESAI']}\n🔴 Diambil: ${count['DIAMBIL/DIANTAR']}\n\n_Laporan dihasilkan otomatis by Sistem_`;
             window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
         };
 
-        // Hapus Data
         window.clearData = () => {
-            if(confirm('Yakin ingin menghapus semua data? Pastikan Anda sudah mengirim Laporan Harian.')) {
+            if(confirm('Yakin ingin menghapus semua data PEKERJAAN HARI INI? (Data Pelanggan tidak akan terhapus). Pastikan Laporan Harian sudah dikirim.')) {
                 orders = [];
                 localStorage.removeItem('laundryOrders');
-                renderData();
+                renderOrders();
             }
         }
 
-        // Inisialisasi awal
-        renderData();
+        // --- INISIALISASI ---
+        renderOrders();
+        renderCustomers();
     </script>
 </body>
 </html>
-
